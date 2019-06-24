@@ -1,16 +1,13 @@
 const express = require('express');
+
 const router = express.Router();
 
-const lists = require('./lists');
+const controller = require('./crud');
 
-const listCreate = require('./listCreate');
+router.get('/list', controller.list);
 
-const listDelete = require('./listDelete');
+router.put('/', controller.create);
 
-router.get('/list', lists);
-
-router.put('/', listCreate);
-
-router.delete('/', listDelete);
+router.delete('/', controller.delete);
 
 module.exports = router;
