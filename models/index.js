@@ -2,7 +2,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
-const config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
+const config = require(path.join(__dirname, '..', 'config', 'config.json'))[env]; // eslint-disable-line import/no-dynamic-require
 const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
@@ -10,7 +10,6 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-//모델정보를 읽어온다.
 db.Lists = require('./lists')(sequelize, Sequelize);
 
 

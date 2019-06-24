@@ -8,9 +8,14 @@ module.exports = async (req, res) => {
     text,
   });
 
-  console.log(list);
+  const createList = await Lists.findOne({
+    where: {
+      listId: list.null,
+    },
+  });
   res.send({
     code: 200,
+    createList,
     message: '생성완료',
   });
 };

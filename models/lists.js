@@ -8,6 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(1000),
     },
   }, {
-    timestamps: false,
-  });
+      timestamps: false,
+    });
 };
